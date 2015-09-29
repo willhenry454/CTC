@@ -6,6 +6,18 @@
   <link rel="icon" href="http://cs.sru.edu/favicon.ico" type="image/x-icon">
   <script src="bootstrap.js"></script>
   <title>CTC</title>
+  
+    <script type="text/javascript">
+
+var slideimages = new Array() // create new array to preload images
+slideimages[0] = new Image() // create new instance of image object
+slideimages[0].src = "Laptop.JPG" // set image src property to image path, preloading image in the process
+slideimages[1] = new Image()
+slideimages[1].src = "pic1.JPG"
+slideimages[2] = new Image()
+slideimages[2].src = "pic2.JPG"
+
+</script>
 </head>
 
 <body>
@@ -60,6 +72,33 @@
 </div>
 
 <!--Image Carousel-->
+
+<div align="center">
+<!--Image Carousel-->
+<img src="Laptop.JPG" id="slide" alt="laptop" width="400" height="250"/>
+
+<script type="text/javascript">
+
+//variable that will increment through the images
+var step=0
+
+function slideit(){
+ //if browser does not support the image object, exit.
+ if (!document.images)
+  return
+ document.getElementById('slide').src = slideimages[step].src
+ if (step<2)
+  step++
+ else
+  step=0
+ //call function "slideit()" every 2.5 seconds
+ setTimeout("slideit()",4500)
+}
+
+slideit()
+
+</script>
+</div>
 
 </body>
 </html>
